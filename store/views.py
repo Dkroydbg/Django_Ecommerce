@@ -87,3 +87,18 @@ def signup(request):
         return render(request,'signup.html')
     else:
         return registerUser(request)
+    
+
+def login(request):
+    if request.method == 'GET':
+        return render(request,'login.html')
+    else:
+        email=request.POST.get('email')
+        password=request.POST.get('password')
+        customer=Customer.objects.filter(email=email).first()
+        error_message=None
+        if customer and check_password(password,customer.password):
+            return redirect('homepage')
+        else:
+            error_message="email or passsword invalid"
+            return render(request,'login.html',{'error':error_message})
