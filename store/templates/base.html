@@ -35,18 +35,20 @@
           </ul>
 
           <ul class="navbar-nav my-2 my-lg-0">
-            {% if request.session.customer %}
-            
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/cart">Cart</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/orders">Orders</a>
             </li>
+            {% if request.session.customer %}
+            
+            
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/logout">LogOut</a>
             </li>
               {% else %}
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/cart">Cart</a>
-              </li>
+              
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/signup">Signup</a>
             </li>
