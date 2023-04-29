@@ -38,7 +38,7 @@
               <h6 class="card-title">{{prod.product_name}}</h6>
               {% comment %} <p class="card-text">{{prod.product_description}}</p> {% endcomment %}
               <p>₹{{prod.product_price}}</p>
-              {{prod | is_in_cart:request.session.cart }}
+              {% comment %} {{prod | is_in_cart:request.session.cart }} {% endcomment %}
               
             </div>
             <div class="card-footer p-0 no-gutters">
