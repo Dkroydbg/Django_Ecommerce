@@ -35,8 +35,11 @@
                     <td>{{order.date}}</td>
                     <td>{{order.quantity}}</td>
                     <td>{{ order.quantity|multiply:order.price|currency}}</td>
-                    <td>{{ order.status|default:'pending'}}</td>
-
+                    {% if order.status %}
+                    <td class="badge bg-success">Completed</td>
+                    {%else%}
+                    <td class="badge bg-warning">Pending</td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
